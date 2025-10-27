@@ -100,18 +100,46 @@ def get_dealerships(request, state="All"):
     return JsonResponse({"status":200,"dealers":dealerships})
 
 def get_dealer_reviews(request, dealer_id):
-    # if dealer id has been provided
-    if(dealer_id):
-        endpoint = "/fetchReviews/dealer/"+str(dealer_id)
-        reviews = get_request(endpoint)
-        for review_detail in reviews:
-            response = analyze_review_sentiments(review_detail['review'])
-            print(response)
-            review_detail['sentiment'] = response['sentiment']
-        return JsonResponse({"status":200,"reviews":reviews})
-    else:
-        return JsonResponse({"status":400,"message":"Bad Request"})
-
+    try:
+        # Get reviews from MongoDB
+        reviews = get_request(f"/fetchReviews/dealer/{dealer_id}")
+        
+        if not reviews:
+            return JsonResponse({"status": 200, "reviews": []})
+        
+        # Process reviews with sentiment analysis
+        review_details = []
+        for review in reviews:
+            review_detail = {
+                "id": review.get("id"),
+                "name": review.get("name"),
+                "dealership": review.get("dealership"),
+                "review": review.get("review"),
+                "purchase": review.get("purchase"),
+                "purchase_date": review.get("purchase_date"),
+                "car_make": review.get("car_make"),
+                "car_model": review.get("car_model"),
+                "car_year": review.get("car_year"),
+            }
+            
+            # Try sentiment analysis, but don't fail if it doesn't work
+            try:
+                sentiment_response = analyze_review_sentiments(review.get("review", ""))
+                if sentiment_response and 'sentiment' in sentiment_response:
+                    review_detail["sentiment"] = sentiment_response['sentiment']
+                else:
+                    review_detail["sentiment"] = "neutral"  # Default fallback
+            except Exception as e:
+                print(f"Sentiment analysis failed: {e}")
+                review_detail["sentiment"] = "neutral"  # Default fallback
+            
+            review_details.append(review_detail)
+        
+        return JsonResponse({"status": 200, "reviews": review_details})
+        
+    except Exception as e:
+        print(f"Error in get_dealer_reviews: {e}")
+        return JsonResponse({"status": 500, "error": str(e), "reviews": []})
 def get_dealer_details(request, dealer_id):
     if(dealer_id):
         endpoint = "/fetchDealer/"+str(dealer_id)
