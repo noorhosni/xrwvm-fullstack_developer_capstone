@@ -1,65 +1,87 @@
-.register_container{
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  margin-top: 2%;
-  background-color: darkturquoise;
-  min-width: 350px;
-  width: 30%;
-}
-
-.inputs{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.input{
-  display: flex;
-  flex-direction:row;
-  align-items: center;
-}
-
-.input_field{
-  height:40px;
-  width:200px;
-  margin:.5cm;
-  font-size: medium;
-}
-
-.submit_panel{
-  display: flex;
-  flex-direction:column;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.submit{
-  margin-left: 30%;
-  margin-right: 30%;
-  cursor: pointer;
-  font-size: large;
-  color: rgb(97, 64, 128);
+/* Register.css */
+.register-card {
+  background: white;
+  border: none;
   border-radius: 10px;
-  height:50px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
-.submit:hover {
-  background-color: wheat;
+.register-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.header{
-  font: 4em sans-serif;
+.card-header {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%) !important;
+  border-bottom: none;
+  padding: 1.5rem;
+}
+
+.card-header h3 {
   color: white;
-  margin: .5cm;
+  margin: 0;
+  font-weight: 600;
 }
 
-.img_icon{
-  width:40px;
-  margin:.1cm;
-  background-color:#0C9;
-  color:#FFF;
-  border-radius:50px;
-  text-align:center;
-  box-shadow: 2px 2px 3px #999;  
+.btn-close {
+  filter: invert(1);
+}
+
+.form-label {
+  color: #2c3e50;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.input-group-text {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  border: none;
+  color: white;
+  min-width: 45px;
+  justify-content: center;
+}
+
+.form-control {
+  border-radius: 0 8px 8px 0;
+  border: 1px solid #e1e5e9;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.text-primary {
+  color: #3498db !important;
+}
+
+a.text-primary:hover {
+  color: #2c3e50 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .card-header {
+    padding: 1rem;
+  }
 }
