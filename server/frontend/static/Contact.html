@@ -1,0 +1,232 @@
+<html>
+<head>
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%) !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .nav-link {
+      color: #ffffff !important;
+      font-weight: 500;
+      margin: 0 10px;
+    }
+    .nav-link:hover {
+      color: #ecf0f1 !important;
+    }
+    .card {
+      background: white;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #3498db, #2c3e50);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: white;
+      font-size: 24px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #3498db, #2c3e50);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-weight: 600;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid #e1e5e9;
+      padding: 12px 15px;
+      transition: all 0.3s ease;
+    }
+    .form-control:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    }
+    .map-container {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <h2 style="padding-right: 5%; color: white;">🏢 Auto Excellence</h2>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+      <h1 class="text-primary mb-3">Get In Touch</h1>
+      <p class="lead text-muted">We're here to help you find your perfect vehicle. Reach out to us anytime!</p>
+    </div>
+
+    <div class="row">
+      <!-- Contact Information -->
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 text-center p-4">
+          <div class="contact-icon">📞</div>
+          <h4 class="text-primary">Phone</h4>
+          <p class="text-muted">Speak directly with our team</p>
+          <h5 class="text-dark">+1 (555) 123-4567</h5>
+          <small class="text-muted">Mon-Fri: 8AM-8PM EST</small>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 text-center p-4">
+          <div class="contact-icon">✉️</div>
+          <h4 class="text-primary">Email</h4>
+          <p class="text-muted">Send us a message anytime</p>
+          <h5 class="text-dark">info@autoexcellence.com</h5>
+          <small class="text-muted">We reply within 24 hours</small>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 text-center p-4">
+          <div class="contact-icon">📍</div>
+          <h4 class="text-primary">Visit Us</h4>
+          <p class="text-muted">Stop by our showroom</p>
+          <h5 class="text-dark">123 Auto Avenue</h5>
+          <small class="text-muted">New York, NY 10001</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <!-- Contact Form -->
+      <div class="col-lg-8 mb-4">
+        <div class="card p-4">
+          <h3 class="text-primary mb-4">Send us a Message</h3>
+          <form>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <select class="form-control" id="subject" required>
+                <option value="">Select a subject</option>
+                <option value="sales">Vehicle Sales Inquiry</option>
+                <option value="service">Service & Maintenance</option>
+                <option value="test-drive">Schedule Test Drive</option>
+                <option value="finance">Financing Options</option>
+                <option value="general">General Inquiry</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="newsletter">
+              <label class="form-check-label" for="newsletter">Subscribe to our newsletter for updates and offers</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Map & Additional Info -->
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="map-container">
+            <!-- Replace with actual map embed -->
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white;">
+              <div class="text-center">
+                <h4>📍 Our Location</h4>
+                <p>Interactive Map</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="text-primary">Auto Excellence Dealership</h5>
+            <p class="text-muted">123 Auto Avenue<br>New York, NY 10001</p>
+            <hr>
+            <h6 class="text-dark">Business Hours</h6>
+            <p class="text-muted mb-1">Monday - Friday: 9:00 AM - 8:00 PM</p>
+            <p class="text-muted mb-1">Saturday: 10:00 AM - 6:00 PM</p>
+            <p class="text-muted">Sunday: 12:00 PM - 5:00 PM</p>
+          </div>
+        </div>
+
+        <div class="card p-3">
+          <h6 class="text-primary">Emergency Service</h6>
+          <p class="text-muted small">For after-hours vehicle assistance:</p>
+          <h6 class="text-dark">+1 (555) 911-CARS</h6>
+          <p class="text-muted small">Available 24/7 for roadside assistance</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Response Section -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="card text-center p-5" style="background: linear-gradient(135deg, #3498db, #2c3e50); color: white;">
+          <h3 class="mb-3">Ready to Find Your Dream Car?</h3>
+          <p class="lead mb-4">Our team is standing by to help you with any questions about our vehicles, financing, or services.</p>
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <button class="btn btn-light btn-lg">📞 Call Now</button>
+            <button class="btn btn-outline-light btn-lg">✉️ Email Us</button>
+            <button class="btn btn-light btn-lg">📅 Schedule Visit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
